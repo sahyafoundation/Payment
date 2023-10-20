@@ -53,9 +53,25 @@
 </head>
 <body>
     <div id="container">
-        <img id="image" src="upi_1697660008070.png" alt="UPI payment to 9633366464@okbizaxis">
+        <img id="downloadImage" src="upi_1697660008070.png" alt="UPI payment to 9633366464@okbizaxis">
         <br>
-        <button class="btn"><a href="upi://pay?pa=9633366464@okbizaxis&pn=Sahya%20Digital%20Conservation%20Foundation&am=100&tn=OSM%20Kerala%20community%20meetup%202023&cu=INR" style="color:white; text-decoration: none; right: 0;"><p>Click here to make ₹100 payment</p></a></button>
+        <button class="btn" id="downloadButton"><a href="upi://pay?pa=9633366464@okbizaxis&pn=Sahya%20Digital%20Conservation%20Foundation&am=100&tn=OSM%20Kerala%20community%20meetup%202023&cu=INR" style="color:white; text-decoration: none; right: 0;"><p>Download the image</p></a></button>
     </div>
+    
+    <script>
+        const downloadButton = document.getElementById("downloadButton");
+        const downloadImage = document.getElementById("downloadImage");
+        
+        downloadButton.addEventListener("click", function () {
+            const imageSrc = downloadImage.src;
+            const link = document.createElement("a");
+            link.href = imageSrc;
+            link.download = "upi_1697660008070.png";
+            link.style.display = "none";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        });
+    </script>
 </body>
 </html>
